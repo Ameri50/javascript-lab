@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header>
+    <img width="60" src="https://marketplace.canva.com/EAF5V9i5G5g/1/0/1600w/canva-logotipo-cafeter%C3%ADa-figurativo-caf%C3%A9-y-beige-rxcvtLtKSx8.jpg" alt="" />
+    <nav>
+      <ul>
+        <li><a href="">Inicio</a></li>
+        <li><a href="">Productos</a></li>
+        <li><a href="">Ofertas</a></li>
+        <li><a href="">Tiendas</a></li>
+        <li><a href="">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Cafe Enter Tech</h1>
+        <p>El mejor cafe del Perú y la mejor escuela para aprender a programar</p>
+        <button id="btn-comprar">Iniciar compra</button>
+        <div id="saludo"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Cambiar el color de fondo según el input del usuario
+    const colorDeFondo = prompt("Hola usuario, por favor escribe un color en inglés:");
+    if (colorDeFondo) {
+      document.body.style.backgroundColor = colorDeFondo;
+    }
+
+    // Calcular peso en la luna
+    const peso = prompt("Ingresa tu peso en la Tierra:");
+    if (peso && !isNaN(peso)) {
+      const resultado = (Number(peso) / 9.81) * 1.622;
+      alert("Tu peso en la luna es " + resultado.toFixed(2) + " Kg.");
+    } else {
+      alert("Por favor, ingresa un número válido para tu peso.");
+    }
+
+    // Usar confirm() para verificar si el usuario quiere continuar
+    const confirmarCompra = confirm("¿Te gustaría iniciar tu compra?");
+    const botonCompra = document.getElementById("btn-comprar");
+
+    if (confirmarCompra) {
+      botonCompra.textContent = "¡Compra confirmada!";
+    } else {
+      botonCompra.textContent = "Iniciar compra";
+    }
+
+    // Componente interactivo para saludar al usuario
+    const nombreUsuario = prompt("¿Cuál es tu nombre?");
+    const saludo = document.getElementById("saludo");
+
+    if (nombreUsuario) {
+      saludo.textContent = "¡Bienvenido, " + nombreUsuario + "!";
+    } else {
+      saludo.textContent = "¡Bienvenido, visitante!";
+    }
+  </script>
+</body>
+</html>

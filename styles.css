@@ -1,0 +1,70 @@
+/* reset: Remover los estilos que vienen por defecto con el navegador */
+/* "*" = Todo */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    /* CAMBIAR LA FUENTA DE LA WEB */
+    font-family: Helvetica, sans-serif;
+  }
+  
+  header {
+    /* border: solid 3px; */
+    display: flex;
+    /* alineacion horizontal */
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  img {
+    border-radius: 50%;
+  }
+  
+  ul {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .hero {
+    background: url("https://208f1686.rocketcdn.me/wp-content/uploads/2023/10/las-cafeterias-son-negocios-rentables.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    color: #fff;
+  }
+  
+  h1 {
+    font-size: 40px;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  p {
+    font-size: 18px;
+    text-shadow: 1px 1px 2px #000;
+  }
+  
+  .btn-inicio {
+    margin-top: 20px;
+    display: block;
+    background-color: #ffa75f;
+    width: 140px;
+    padding: 10px 15px;
+    text-align: center;
+    border-radius: 8px;
+    font-weight: bold;
+  }
