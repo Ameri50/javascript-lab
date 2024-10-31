@@ -1,5 +1,4 @@
 /* reset: Remover los estilos que vienen por defecto con el navegador */
-/* "*" = Todo */
 * {
   margin: 0;
   padding: 0;
@@ -64,4 +63,19 @@ p {
   text-align: center;
   border-radius: 8px;
   font-weight: bold;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+section > a {
+  background-color: #ffa75f;
+  padding: 10px 20px;
+  border: 1px solid #000; /* Agregado el borde */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
 }
