@@ -1,4 +1,4 @@
-/* reset: Remover los estilos que vienen por defecto con el navegador */
+/* Reset de estilos */
 * {
   margin: 0;
   padding: 0;
@@ -6,76 +6,182 @@
 }
 
 body {
-  /* CAMBIAR LA FUENTE DE LA WEB */
-  font-family: Helvetica, sans-serif;
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+  line-height: 1.6;
 }
 
+/* Header */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  background-color: #333;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-img {
+header img {
+  width: 50px;
   border-radius: 50%;
 }
 
-ul {
+header ul {
   display: flex;
   list-style: none;
-  gap: 15px;
+  gap: 20px;
 }
 
-a {
+header ul li a {
+  color: #ffa75f;
+  font-weight: bold;
   text-decoration: none;
-  color: #000;
+  transition: color 0.3s;
 }
 
+header ul li a:hover {
+  color: #ffd07f;
+}
+
+/* Hero Section */
 .hero {
-  background: url("https://208f1686.rocketcdn.me/wp-content/uploads/2023/10/las-cafeterias-son-negocios-rentables.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://208f1686.rocketcdn.me/wp-content/uploads/2023/10/las-cafeterias-son-negocios-rentables.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   height: 500px;
   display: flex;
   align-items: center;
-  padding: 20px;
+  padding: 0 40px;
   color: #fff;
+  text-align: center;
 }
 
-h1 {
-  font-size: 40px;
-  text-shadow: 1px 1px 2px #000;
+.hero h1 {
+  font-size: 50px;
+  font-weight: bold;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
 }
 
-p {
-  font-size: 18px;
-  text-shadow: 1px 1px 2px #000;
+.hero p {
+  font-size: 20px;
+  max-width: 500px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
+  line-height: 1.5;
 }
 
 .btn-inicio {
-  margin-top: 20px;
-  display: block;
+  margin-top: 25px;
   background-color: #ffa75f;
-  width: 140px;
-  padding: 10px 15px;
-  text-align: center;
-  border-radius: 8px;
+  color: #333;
+  padding: 12px 20px;
+  border-radius: 25px;
   font-weight: bold;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-section {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+.btn-inicio:hover {
+  background-color: #ffd07f;
+  transform: scale(1.05);
 }
 
-section > a {
-  background-color: #ffa75f;
-  padding: 10px 20px;
-  border: 1px solid #000; /* Agregado el borde */
+/* Main Section */
+main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+main h1 {
+  font-size: 36px;
+  color: #333;
+}
+
+main button {
+  background-color: #333;
   color: #fff;
-  text-decoration: none;
+  padding: 12px 20px;
+  margin: 10px;
+  border: none;
   border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+main button:hover {
+  background-color: #444;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Interactive Sections */
+.interactive-section {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 20px;
+  max-width: 600px;
+  border-left: 8px solid #ffa75f;
+}
+
+.interactive-section h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.interactive-section button {
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.interactive-section button:hover {
+  background-color: #444;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+#brothers-list {
+  margin-top: 15px;
+  text-align: left;
+}
+
+#brothers-list h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#brothers-list ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+#brothers-list li {
+  font-size: 18px;
+  color: #666;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
 }

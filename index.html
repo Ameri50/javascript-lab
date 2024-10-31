@@ -1,74 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link rel="stylesheet" href="./styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Interactiva y Café Enter Tech</title>
+    <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
-  <header>
-    <img width="60" src="https://marketplace.canva.com/EAF5V9i5G5g/1/0/1600w/canva-logotipo-cafeter%C3%ADa-figurativo-caf%C3%A9-y-beige-rxcvtLtKSx8.jpg" alt="" />
-    <nav>
-      <ul>
-        <li><a href="">Inicio</a></li>
-        <li><a href="">Productos</a></li>
-        <li><a href="">Ofertas</a></li>
-        <li><a href="">Tiendas</a></li>
-        <li><a href="">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+    <!-- HEADER -->
+    <header>
+        <img
+            width="60"
+            src="https://marketplace.canva.com/EAF5V9i5G5g/1/0/1600w/canva-logotipo-cafeter%C3%ADa-figurativo-caf%C3%A9-y-beige-rxcvtLtKSx8.jpg"
+            alt="Logo de la empresa"
+        />
+        <h1>Café Enter Tech</h1>
+        <p>
+            El mejor café del Perú y la mejor escuela para aprender a programar
+        </p>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#tiendas">Tiendas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <div class="hero">
-      <div>
-        <h1>Cafe Enter Tech</h1>
-        <p>El mejor cafe del Perú y la mejor escuela para aprender a programar</p>
-        <button id="btn-comprar">Iniciar compra</button>
-        <div id="saludo"></div>
-      </div>
-    </div>
-  </main>
-  <section>
-    <Quiero href="./interactivo.html">Quiero interactuar</a>
-  </section>
+    <!-- MAIN CONTENT -->
+    <main>
+        <div class="hero">
+            <h1>Bienvenido a la Web Interactiva</h1>
+            <p>Explora las distintas funciones interactivas usando los botones a continuación:</p>
+        </div>
 
-  <script>
-    // Cambiar el color de fondo según el input del usuario
-    const colorDeFondo = prompt("Hola usuario, por favor escribe un color en inglés:");
-    if (colorDeFondo) {
-      document.body.style.backgroundColor = colorDeFondo;
-    }
+        <section class="interactive-section">
+            <h2>Función de Hermanos</h2>
+            <button onclick="registerBrothers()">Registrar Hermanos</button>
+            <div id="brothers-list"></div> <!-- Contenedor para los nombres -->
+        </section>
 
-    // Calcular peso en la luna
-    const peso = prompt("Ingresa tu peso en la Tierra:");
-    if (peso && !isNaN(peso)) {
-      const resultado = (Number(peso) / 9.81) * 1.622;
-      alert("Tu peso en la luna es " + resultado.toFixed(2) + " Kg.");
-    } else {
-      alert("Por favor, ingresa un número válido para tu peso.");
-    }
+        <section class="interactive-section">
+            <h2>Generar Bloques de Colores</h2>
+            <button onclick="generateBlocks()">Generar Bloques</button>
+        </section>
 
-    // Usar confirm() para verificar si el usuario quiere continuar
-    const confirmarCompra = confirm("¿Te gustaría iniciar tu compra?");
-    const botonCompra = document.getElementById("btn-comprar");
+        <section class="interactive-section">
+            <h2>Juego de Piedra, Papel o Tijera</h2>
+            <button onclick="juegoPiedraPapelTijera()">Jugar Yanquenpo</button>
+        </section>
 
-    if (confirmarCompra) {
-      botonCompra.textContent = "¡Compra confirmada!";
-    } else {
-      botonCompra.textContent = "Iniciar compra";
-    }
+        <section>
+            <a href="./interactivo.html">Quiero interactuar</a>
+        </section>
+    </main>
 
-    // Componente interactivo para saludar al usuario
-    const nombreUsuario = prompt("¿Cuál es tu nombre?");
-    const saludo = document.getElementById("saludo");
+    <!-- JAVASCRIPT -->
+    <script src="./app.js"></script>
+    <script>
+        // Solicitar un color de fondo al usuario
+        const colorDeFondo = prompt("Hola usuario, por favor escribe un color en inglés");
+        console.log(colorDeFondo);
 
-    if (nombreUsuario) {
-      saludo.textContent = "¡Bienvenido, " + nombreUsuario + "!";
-    } else {
-      saludo.textContent = "¡Bienvenido, visitante!";
-    }
-  </script>
+        // Cambiar el color de fondo de la página
+        document.body.style.backgroundColor = colorDeFondo;
+
+        // Cambiar el color de los enlaces a blanco
+        document.querySelectorAll("a").forEach((element) => {
+            element.style.color = "white";
+        });
+
+        // Calcular el peso en la luna
+        const peso = prompt("Ingresa tu peso en la Tierra (en kg)");
+
+        // Convertir el peso a número y calcular el peso en la luna
+        const pesoEnLuna = (Number(peso) / 9.81) * 1.622;
+
+        // Mostrar el resultado en una alerta
+        alert("Tu peso en la luna es " + pesoEnLuna.toFixed(2) + " kg.");
+    </script>
 </body>
 </html>

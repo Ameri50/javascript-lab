@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <body>
-        <main>
-            <h1> Web interactivo</h1>
-            <button onclick="registerBrothers()">hermanos</button>
-            <button onclick="">Bloques</button>
-            <button>juego 3</button>
-        </main>
-        <script src="app.js"></script>
-    </body>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Interactiva</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Bienvenido a la Web Interactiva</h1>
+      <p>Explora las distintas funciones interactivas usando los botones a continuación:</p>
+    </header>
+
+    <main>
+      <section class="interactive-section">
+        <h2>Función de Hermanos</h2>
+        <button onclick="registerBrothers()">Registrar Hermanos</button>
+        <div id="brothers-list"></div> <!-- Contenedor para los nombres -->
+      </section>
+
+      <section class="interactive-section">
+        <h2>Generar Bloques de Colores</h2>
+        <button onclick="generateBlocks()">Generar Bloques</button>
+      </section>
+
+      <section class="interactive-section">
+        <h2>Juego de Piedra, Papel o Tijera</h2>
+        <button onclick="juegoPiedraPapelTijera()">Jugar Yanquenpo</button>
+      </section>
+    </main>
+
+    <!-- Enlace a archivo JavaScript -->
+    <script src="./app.js"></script>
+  </body>
 </html>
