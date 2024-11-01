@@ -1,85 +1,207 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Web Interactiva y Café Enter Tech</title>
-    <link rel="stylesheet" href="./styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto Interactivo</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Asegúrate de que el archivo CSS esté vinculado correctamente -->
 </head>
 <body>
-    <!-- HEADER -->
     <header>
-        <img
-            width="60"
-            src="https://marketplace.canva.com/EAF5V9i5G5g/1/0/1600w/canva-logotipo-cafeter%C3%ADa-figurativo-caf%C3%A9-y-beige-rxcvtLtKSx8.jpg"
-            alt="Logo de la empresa"
-        />
-        <h1>Café Enter Tech</h1>
-        <p>
-            El mejor café del Perú y la mejor escuela para aprender a programar
-        </p>
+        <h1>Proyecto Interactivo</h1>
         <nav>
             <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#productos">Productos</a></li>
-                <li><a href="#ofertas">Ofertas</a></li>
-                <li><a href="#tiendas">Tiendas</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#calculadora">Calculadora</a></li>
+                <li><a href="#juego">Juego</a></li>
+                <li><a href="#colores">Colores</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <div class="hero">
+        <h1>Bienvenido a mi Proyecto</h1>
+        <p>Explora las diferentes secciones interactivas que hemos preparado.</p>
+        <button class="btn-inicio" onclick="changeBackgroundColor()">Cambiar Color de Fondo</button>
+    </div>
+
     <main>
-        <div class="hero">
-            <h1>Bienvenido a la Web Interactiva</h1>
-            <p>Explora las distintas funciones interactivas usando los botones a continuación:</p>
-        </div>
-
-        <section class="interactive-section">
-            <h2>Función de Hermanos</h2>
-            <button onclick="registerBrothers()">Registrar Hermanos</button>
-            <div id="brothers-list"></div> <!-- Contenedor para los nombres -->
+        <section class="interactive-section" id="calculadora">
+            <h2>Calculadora</h2>
+            <div class="calculator">
+                <div>
+                    <h3>Calcular Edad</h3>
+                    <input type="number" id="anioNacimiento" placeholder="Año de Nacimiento">
+                    <button onclick="calcularEdad()">Calcular Edad</button>
+                    <p id="edadResultado"></p>
+                </div>
+                <div>
+                    <h3>Convertir Temperatura</h3>
+                    <input type="number" id="inputTemp" placeholder="Temperatura">
+                    <select id="tempUnit">
+                        <option value="celsius">Celsius a Fahrenheit</option>
+                        <option value="fahrenheit">Fahrenheit a Celsius</option>
+                    </select>
+                    <button onclick="convertir()">Convertir</button>
+                    <p id="resultado"></p>
+                </div>
+                <div>
+                    <h3>Contar Vocales</h3>
+                    <input type="text" id="inputPalabra" placeholder="Ingresa una palabra">
+                    <button onclick="contarVocales()">Contar Vocales</button>
+                    <p id="vocalesResultado"></p>
+                </div>
+                <div>
+                    <h3>Tabla de Multiplicar</h3>
+                    <input type="number" id="tablaNumero" placeholder="Número">
+                    <button onclick="tablaDeMultiplicar()">Generar Tabla</button>
+                    <pre id="tablaResultado"></pre>
+                </div>
+            </div>
         </section>
 
-        <section class="interactive-section">
-            <h2>Generar Bloques de Colores</h2>
+        <section class="interactive-section" id="juego">
+            <h2>Juego: Piedra, Papel o Tijera</h2>
+            <button onclick="juegoPiedraPapelTijera()">Jugar</button>
+        </section>
+
+        <section class="interactive-section" id="colores">
+            <h2>Generador de Bloques de Colores</h2>
             <button onclick="generateBlocks()">Generar Bloques</button>
-        </section>
-
-        <section class="interactive-section">
-            <h2>Juego de Piedra, Papel o Tijera</h2>
-            <button onclick="juegoPiedraPapelTijera()">Jugar Yanquenpo</button>
-        </section>
-
-        <section>
-            <a href="./interactivo.html">Quiero interactuar</a>
+            <div id="brothers-list">
+                <h3>Hermanos Registrados:</h3>
+                <ul id="hermanos"></ul>
+            </div>
         </section>
     </main>
 
-    <!-- JAVASCRIPT -->
-    <script src="./app.js"></script>
+    <footer>
+        <p>&copy; 2024 Proyecto Interactivo</p>
+    </footer>
+
     <script>
-        // Solicitar un color de fondo al usuario
-        const colorDeFondo = prompt("Hola usuario, por favor escribe un color en inglés");
-        console.log(colorDeFondo);
+        // Aquí va todo tu código JavaScript
 
-        // Cambiar el color de fondo de la página
-        document.body.style.backgroundColor = colorDeFondo;
+        function calcularEdad() {
+            const anioNacimiento = document.getElementById("anioNacimiento").value;
+            const anioActual = new Date().getFullYear();
+            const edad = anioActual - anioNacimiento;
+            document.getElementById("edadResultado").innerText = `Tienes ${edad} años`;
+        }
 
-        // Cambiar el color de los enlaces a blanco
-        document.querySelectorAll("a").forEach((element) => {
-            element.style.color = "white";
-        });
+        function convertir() {
+            const inputTemp = document.getElementById("inputTemp").value;
+            const tempUnit = document.getElementById("tempUnit").value;
+            let resultado;
 
-        // Calcular el peso en la luna
-        const peso = prompt("Ingresa tu peso en la Tierra (en kg)");
+            if (tempUnit === "celsius") {
+                resultado = (inputTemp * 9/5) + 32;
+                document.getElementById("resultado").innerText = `${inputTemp} °C son ${resultado.toFixed(2)} °F`;
+            } else {
+                resultado = (inputTemp - 32) * 5/9;
+                document.getElementById("resultado").innerText = `${inputTemp} °F son ${resultado.toFixed(2)} °C`;
+            }
+        }
 
-        // Convertir el peso a número y calcular el peso en la luna
-        const pesoEnLuna = (Number(peso) / 9.81) * 1.622;
+        function contarVocales() {
+            const palabra = document.getElementById("inputPalabra").value.toLowerCase();
+            const vocales = ['a', 'e', 'i', 'o', 'u'];
+            let contador = 0;
 
-        // Mostrar el resultado en una alerta
-        alert("Tu peso en la luna es " + pesoEnLuna.toFixed(2) + " kg.");
+            for (let letra of palabra) {
+                if (vocales.includes(letra)) {
+                    contador++;
+                }
+            }
+            
+            document.getElementById("vocalesResultado").innerText = `La palabra contiene ${contador} vocales`;
+        }
+
+        function tablaDeMultiplicar() {
+            const numero = document.getElementById("tablaNumero").value;
+            let resultado = "";
+
+            for (let i = 1; i <= 10; i++) {
+                resultado += `${numero} x ${i} = ${numero * i}\n`;
+            }
+            
+            document.getElementById("tablaResultado").innerText = resultado;
+        }
+
+        function juegoPiedraPapelTijera() {
+            const opciones = ["piedra", "papel", "tijera"];
+            const eleccionUsuario = prompt("Elige una opción: piedra, papel o tijera").toLowerCase();
+            
+            if (!opciones.includes(eleccionUsuario)) {
+                alert("Opción no válida. Elige piedra, papel o tijera.");
+                return;
+            }
+            
+            const eleccionComputadora = opciones[Math.floor(Math.random() * 3)];
+            alert(`La computadora eligió: ${eleccionComputadora}`);
+            
+            if (eleccionUsuario === eleccionComputadora) {
+                alert("Es un empate!");
+            } else if (
+                (eleccionUsuario === "piedra" && eleccionComputadora === "tijera") ||
+                (eleccionUsuario === "tijera" && eleccionComputadora === "papel") ||
+                (eleccionUsuario === "papel" && eleccionComputadora === "piedra")
+            ) {
+                alert("¡Ganaste!");
+            } else {
+                alert("Perdiste. Intenta de nuevo.");
+            }
+        }
+
+        function changeBackgroundColor() {
+            const backgroundColor = prompt("Ingrese un color de fondo para la web");
+            document.body.style.backgroundColor = backgroundColor;
+        }
+
+        function registerBrothers() {
+            const brotherQuantity = Number(prompt("Ingrese la cantidad de hermanos"));
+            const brothers = [];
+            let counter = 0;
+
+            while (counter < brotherQuantity) {
+                const brotherName = prompt("Ingresa el nombre de tu hermano " + (counter + 1));
+                brothers.push(brotherName);
+                counter++;
+            }
+
+            const brothersList = document.getElementById("hermanos");
+            brothersList.innerHTML = "";
+            brothers.forEach(brother => {
+                const li = document.createElement("li");
+                li.textContent = brother;
+                brothersList.appendChild(li);
+            });
+        }
+
+        function generarColorHex() {
+            const letras = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letras[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        function generateBlocks() {
+            const blocksNumber = Number(prompt("Ingrese la cantidad de bloques que desea dibujar"));
+            let counter = 0;
+
+            while (counter < blocksNumber) {
+                const newDiv = document.createElement("div");
+                newDiv.style.width = "100px";
+                newDiv.style.height = "100px";
+                newDiv.style.backgroundColor = generarColorHex();
+                document.querySelector("main").appendChild(newDiv);
+                counter++;
+            }
+        }
+
+        // Llamada para registrar hermanos al cargar la página
+        window.onload = registerBrothers;
     </script>
 </body>
 </html>
